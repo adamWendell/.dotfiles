@@ -1,0 +1,6 @@
+path+=$HOME/.local/bin
+
+VIM="nvim"
+
+bindkey -s ^f "tmux-session-create\n"
+bindkey -s ^s "tmux-session-switch\n"

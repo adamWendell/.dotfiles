@@ -6,7 +6,7 @@ fpath+="$(brew --prefix)/share/zsh/site-functions"
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 set -g default-terminal "screen-256color"
-set --option -sa terminal-overrides "xterm-kitty:RGB"
+
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -90,8 +90,9 @@ plugins=(git)
 
 
 [ -f ~/.cargo/env ] && source $HOME/.cargo/env
-
+source ~/.zsh_profile
 source $ZSH/oh-my-zsh.sh
+
 source $(brew --prefix)/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 eval "$(fnm env --use-on-cd)"
@@ -120,3 +121,4 @@ eval "$(fnm env --use-on-cd)"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
