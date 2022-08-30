@@ -1,0 +1,12 @@
+#!/usr/bin/env zsh
+languages=$(echo "rust rustc cargo typescript elm" | tr " " "\n")
+utils=$(echo "sed awk xargs find curl git less" | tr " " "\n")
+selected=$(echo "$languages\n$utils" | fzf)
+
+read query"?Please hand me your Query: "
+
+if echo "$languages" | grep -qs $selected; then
+    tmux neww bash -c "curl cht.sh/$selected/$(echo "$query" | tr " " "+") | less"
+else
+      tmux neww bash -c "curl cht.sh/$selected~$query | less --use-color"
+fi
