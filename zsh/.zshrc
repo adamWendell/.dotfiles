@@ -12,19 +12,7 @@ set -g default-terminal "screen-256color"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="spaceship"
-set prompt spaceship
-SPACESHIP_PROMPT_ADD_NEWLINE="true"
-SPACESHIP_CHAR_SYMBOL="\uf004"
-SPACESHIP_CHAR_PREFIX=""
-SPACESHIP_CHAR_SUFFIX=" "
-SPACESHIP_CHAR_COLOR_SUCCESS="green"
-SPACESHIP_CHAR_COLOR_FAILURE="red"
-SPACESHIP_CHAR_COLOR_SECONDARY="yellow"
-SPACESHIP_PROMPT_FIRST_PREFIX_SHOW="false"
-SPACESHIP_USER_SHOW="true"
-SPACESHIP_RUST_VERBOSE_VERSION="true"
-SPACESHIP_PACKAGE_COLOR="cyan"
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -122,3 +110,18 @@ eval "$(fnm env --use-on-cd)"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/share/python:$PATH
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
+eval "$(starship init zsh)"
+
+# pnpm
+export PNPM_HOME="/Users/adamwendell/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
