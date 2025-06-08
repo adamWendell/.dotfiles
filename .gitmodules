@@ -2,6 +2,6 @@
 	path = zsh/.oh-my-zsh/custom/plugins/zsh-nvm
 	url = git@github.com:lukechilds/zsh-nvm.git
 
-[submodule "kickstart.nvim"]
+[submodule "nvim/.config/nvim"]
 	path = nvim/.config/nvim
 	url = git@github.com:adamWendell/kickstart.nvim.git
